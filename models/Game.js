@@ -1,10 +1,13 @@
 const mongoose = require("mongoose")
 
+// this is to post comments on the game
+const commentSchema = new mongoose.Schema({
+    notes:{
+        type: String
+    }
+})
 // the backlog is for games 
 const gameSchema = new mongoose.Schema({
-    dateAdded: {
-        type: Date
-    },
     game: {
         type: String,
         required: true,
@@ -17,8 +20,9 @@ const gameSchema = new mongoose.Schema({
     },
     statusComplete: {
         type: Boolean,
+        default: false
     }
-})
+}, {timestamps:true})
 
 // Model
 const Game = mongoose.model("Game", gameSchema)
