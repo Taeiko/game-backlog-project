@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List a game</title>
+</head>
+<body>
+    <h1>List a new game in your backlog</h1>
+
+    <form action="/backlog">
+        <label for="game">Game:</label>
+        <input type="text" title="game" name="name">
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" title="genre">
+        <label for="description">Game description:</label>
+        <input type="text" name="description" title="description">
+        <label for="status">Game complete?</label>
+        <input type="checkbox">
+        <button type="submit">submit listing</button>
+    </form>
+</body>
+</html>
