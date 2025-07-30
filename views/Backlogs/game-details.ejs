@@ -16,6 +16,12 @@
         <p>Game complete? : <%= foundGame.status %></p>
         
     </div>
+    <div>
+          <form action="/backlog/edit/<%= foundGame._id %>" method="get">
+            <button type="submit">Edit game details</button>
+          </form>
+    </div>
+    <br>
     <form action="/backlog/<%= foundGame._id %>?_method=DELETE" method="post">
     <button type="submit">Delete game</button>
     </form>

@@ -27,8 +27,10 @@ app.use(passUserToView)
 connectToDB()
 
 // routes go here
-app.use('/backlog', backlogRoutes)
 app.use('/auth', authRoutes )
+app.use(isSignedIn)
+app.use('/backlog', backlogRoutes)
+
 
 app.get('/',(req,res)=> {
   res.render("home.ejs")
