@@ -33,6 +33,16 @@ router.get("/", async (req,res)=>{
         console.log("failed to fetch backlogs", error)
     }
 })
+// shows the user the game via id 
+router.get('/details/:backlogId', async (req,res)=>{
+    try {
+        const foundGame = await Backlog.findById(req.params.backlogId)
+        res.render('backlogs/game-details.ejs',{foundGame})
+        console.log(foundGame)
+    } catch (error) {
+        console.log("failed to find game", error)
+    }
+})
 
 //allows the user to edit their backlog - UPDATE
 router.get('/edit/:backlogId' ,async (req,res)=>{
@@ -55,9 +65,9 @@ router.put('/edit/:backlogId', async (req,res)=>{
 })
 
 // allows user to delete listings - DELETE
-router.delete('/delete/:backlogId', async (req,res)=>{
+router.delete('/:backlogId', async (req,res)=>{
     try {
-        const foundGame = await Backlog.findByIdAndDelete(req.params.id)
+        const foundGame = await Backlog.findByIdAndDelete(req.params.backlogId)
         res.redirect('/backlog')
     } catch (error) {
         console.log('failed to delete game listing', error)

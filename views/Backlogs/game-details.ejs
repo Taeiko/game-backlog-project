@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game details</title>
+</head>
+<body>
+    <h1>Game details</h1>
+    
+    <div>
+        
+        <h3>Game: <%= foundGame.game %></h3>
+        <p>Genre: <%= foundGame.genre %></p>
+        <p>Description: <%= foundGame.description %></p>
+        <p>Game complete? : <%= foundGame.status %></p>
+        
+    </div>
+    <form action="/backlog/<%= foundGame._id %>?_method=DELETE" method="post">
+    <button type="submit">Delete game</button>
+    </form>
+
+</body>
+</html>

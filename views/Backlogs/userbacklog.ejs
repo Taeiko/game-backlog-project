@@ -9,18 +9,20 @@
     <h1>Your game backlog</h1>
 
     <% userBacklog.forEach((oneGame) => { %>
-     
+    <div>
         
         <h3>Game: <%= oneGame.game %></h3>
         <p>Genre: <%= oneGame.genre %></p>
         <p>Description: <%= oneGame.description %></p>
         <p>Game complete? : <%= oneGame.status %></p>
         
+    </div>
+    <a href="/backlog/details/<%= oneGame._id %>">See game details</a>
     <% }) %>
-
+    <br>
+    <br>
     <form action="/backlog/new" method="get">
-<button>Add a new game</button>
-
+    <button>Add a new game</button>
     </form>
 </body>
 </html>
