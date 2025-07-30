@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit game listing</title>
+</head>
+<body>
+    <h1>Edit a game listing</h1>
+        <form action="/backlog/edit/<%= foundGame._id %>?_method=PUT" method="post">
+        <label for="game">Game:</label>
+        <input type="text" title="game" name="game" value="<%= foundGame.game %>">
+
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" title="genre" value="<%= foundGame.genre %>">
+
+        <label for="description">Game description:</label>
+        <input type="text" name="description" title="description" value="<%= foundGame.description %>">
+
+        <label for="status">Game complete?</label>
+        <input type="checkbox" name="status" <%= foundGame.status %>>
+
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

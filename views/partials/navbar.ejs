@@ -1,8 +1,9 @@
 <nav>
     <% if (user){ %>
-    <a href="/auth/logout">Logout</a>
-    <%= user.username %>
-
+        <p>Welcome, <%= user.username %>!</p>
+        <a href="/auth/logout">Logout</a>
+        <a href="/backlog/new">add new game</a>
+        <a href="/backlog">view your backlog</a>
 
     <%} else{ %>
     <a href="/auth/login">Login</a>

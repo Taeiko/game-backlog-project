@@ -16,7 +16,7 @@ const backlogSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    statusComplete: {
+    status: {
         type: Boolean,
         default: false
     },

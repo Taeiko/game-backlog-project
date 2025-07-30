@@ -8,16 +8,20 @@
 <body>
     <h1>List a new game in your backlog</h1>
 
-    <form action="/backlog">
+    <form action="/backlog" method="post">
         <label for="game">Game:</label>
-        <input type="text" title="game" name="name">
+        <input type="text" title="game" name="game">
+
         <label for="genre">Genre:</label>
         <input type="text" name="genre" title="genre">
+
         <label for="description">Game description:</label>
         <input type="text" name="description" title="description">
+
         <label for="status">Game complete?</label>
-        <input type="checkbox">
-        <button type="submit">submit listing</button>
+        <input type="checkbox" name="status">
+
+        <button type="submit">submit game</button>
     </form>
 </body>
 </html>

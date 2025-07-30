@@ -30,7 +30,9 @@ connectToDB()
 app.use('/backlog', backlogRoutes)
 app.use('/auth', authRoutes )
 
-
+app.get('/',(req,res)=> {
+  res.render("home.ejs")
+})
 
 const port = process.env.PORT || 3000
 app.listen(port,()=>{
