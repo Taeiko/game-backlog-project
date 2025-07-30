@@ -54,7 +54,15 @@ router.put('/edit/:backlogId', async (req,res)=>{
     }
 })
 
-
+// allows user to delete listings - DELETE
+router.delete('/delete/:backlogId', async (req,res)=>{
+    try {
+        const foundGame = await Backlog.findByIdAndDelete(req.params.id)
+        res.redirect('/backlog')
+    } catch (error) {
+        console.log('failed to delete game listing', error)
+    }
+})
 
 // export router
 module.exports = router
