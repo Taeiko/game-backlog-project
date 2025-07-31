@@ -49,8 +49,9 @@ router.get('/details/:backlogId', async (req, res) => {
 
 // shows the user backlogs of other users 
 router.get('/community', async(req,res)=>{
-    try{ const allBacklogs = await Backlog.find().populate("user")
-        res.render('/backlog/community.ejs', {allBacklogs: allBacklogs})
+    try{ const allBacklogs = await Backlog.find()
+        res.render('backlogs/community.ejs', {allBacklogs: allBacklogs})
+        console.log(allBacklogs)
     } catch (error) {
         console.log("failed to fetch community backlogs", error)
     }
