@@ -4,21 +4,19 @@ const router = require("express").Router()
 
 
 // create a game listing - CREATE
-router.get ("/new",async (req, res)=>{
+router.get("/new", async (req, res) => {
     console.log(req.session.user)
     const allGames = await Backlog.find()
-    res.render("backlogs/new.ejs", {allGames: allGames})
+    res.render("backlogs/new.ejs", { allGames: allGames })
 })
 
-router.post('/', async (req,res)=>{
+router.post('/', async (req, res) => {
     try {
         console.log(req.session.user)
         req.body.user = req.session.user._id
-        
+
         console.log(req.body)
-        if(req.body.status === "on"){
-        req.body.status = true
-    }
+
         await Backlog.create(req.body)
         res.redirect("/backlog")
     } catch (error) {
@@ -27,21 +25,21 @@ router.post('/', async (req,res)=>{
 })
 
 // shows the user their backlog - READ
-router.get("/", async (req,res)=>{
+router.get("/", async (req, res) => {
     try {
-        const userBacklog =  await Backlog.find({user:req.session.user._id})
+        const userBacklog = await Backlog.find({ user: req.session.user._id })
         console.log(userBacklog)
         // here i tell the page to render my 
-        res.render('backlogs/userbacklog.ejs', {userBacklog: userBacklog})
+        res.render('backlogs/userbacklog.ejs', { userBacklog: userBacklog })
     } catch (error) {
         console.log("failed to fetch backlogs", error)
     }
 })
 // shows the user the game via id 
-router.get('/details/:backlogId', async (req,res)=>{
+router.get('/details/:backlogId', async (req, res) => {
     try {
         const foundGame = await Backlog.findById(req.params.backlogId)
-        res.render('backlogs/game-details.ejs',{foundGame})
+        res.render('backlogs/game-details.ejs', { foundGame })
         console.log(foundGame)
     } catch (error) {
         console.log("failed to find game", error)
@@ -49,25 +47,25 @@ router.get('/details/:backlogId', async (req,res)=>{
 })
 
 //allows the user to edit their backlog - UPDATE
-router.get('/edit/:backlogId' ,async (req,res)=>{
+router.get('/edit/:backlogId', async (req, res) => {
     try {
         const allGames = await Backlog.find()
         const foundGame = await Backlog.findById(req.params.backlogId)
-        res.render('backlogs/update.ejs', {foundGame: foundGame, allGames: allGames})
+        res.render('backlogs/update.ejs', { foundGame: foundGame, allGames: allGames })
     } catch (error) {
         console.log("failed to update game listing", error)
     }
 })
-router.put('/edit/:backlogId', async (req,res)=>{
+router.put('/edit/:backlogId', async (req, res) => {
     try {
         let foundGame = Backlog.findById(req.params.backlogId)
         // json stringify converts object id into strings
-         if ( req.session.user._id=== JSON.stringify(foundGame.user)){
-           return res.send('Error! this listing belongs to another user.')
+        if (req.session.user._id === JSON.stringify(foundGame.user)) {
+            return res.send('Error! this listing belongs to another user.')
         }
         const allGames = await Backlog.find()
         foundGame = await Backlog.findByIdAndUpdate(req.params.backlogId, req.body)
-        
+
         res.redirect('/backlog')
     } catch (error) {
         console.log('failed to update game listing', error)
@@ -75,15 +73,15 @@ router.put('/edit/:backlogId', async (req,res)=>{
 })
 
 // allows user to delete listings - DELETE
-router.delete('/:backlogId', async (req,res)=>{
+router.delete('/:backlogId', async (req, res) => {
     try {
         let foundGame = await Backlog.findById(req.params.backlogId)
         console.log("Session Id " + req.session.user._id)
         console.log("found game id ", foundGame.user)
-        if ( req.session.user._id=== JSON.stringify(foundGame.user)){
-           return res.send('Error! this listing belongs to another user.')
+        if (req.session.user._id === JSON.stringify(foundGame.user)) {
+            return res.send('Error! this listing belongs to another user.')
         }
-         foundGame = await Backlog.findByIdAndDelete(req.params.backlogId)
+        foundGame = await Backlog.findByIdAndDelete(req.params.backlogId)
         res.redirect('/backlog')
     } catch (error) {
         console.log('failed to delete game listing', error)

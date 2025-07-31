@@ -18,7 +18,11 @@
         <input type="text" name="description" title="description" value="<%= foundGame.description %>">
 
         <label for="status">Game complete?</label>
-        <input type="checkbox" name="status" <%= foundGame.status %>>
+        <select name="status" id="tstaus">
+            <option value="Nah..">Nah..</option>
+            <option value="Yeah!">Yeah!</option>
+
+        </select>
 
         <button type="submit">Update</button>
     </form>

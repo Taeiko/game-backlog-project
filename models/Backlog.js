@@ -22,8 +22,9 @@ const backlogSchema = new mongoose.Schema({
         type: String
     },
     status: {
-        type: Boolean,
-        default: false
+        type: String,
+        enum: ["Yeah!", "Nah.."],
+        default: "Nah.."
     },
     comment:[commentSchema]
 }, {timestamps:true})
