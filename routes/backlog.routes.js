@@ -48,10 +48,24 @@ router.get('/details/:backlogId', async (req, res) => {
 
 
 // shows the user backlogs of other users 
-router.get('/community', async(req,res)=>{
-    try{ const allBacklogs = await Backlog.find()
-        res.render('backlogs/community.ejs', {allBacklogs: allBacklogs})
-        console.log(allBacklogs)
+router.get('/users', async(req,res)=>{
+    try{ 
+        const allUsers = await User.find()
+        res.render('backlogs/community.ejs', {allUsers})
+        console.log(allUsers)
+    } catch (error) {
+        console.log("failed to fetch community backlogs", error)
+    }
+})
+
+router.get('/users/:userId', async(req,res)=>{
+    try{ 
+        const founduser = await User.findById(req.params.userId)
+        if(founduser) {
+            const allUserBacklogs = await Backlog.find({user:founduser._id})
+            res.render('backlogs/userDetail.ejs', {founduser , allUserBacklogs})
+        }
+        console.log(founduser)
     } catch (error) {
         console.log("failed to fetch community backlogs", error)
     }

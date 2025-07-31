@@ -7,14 +7,8 @@
 </head>
 <body>
     <h1>Browse community backlogs</h1>
-    <% allBacklogs.forEach((oneBacklog) => { %>
-        <div>
-            <h3>Made by: <%= oneBacklog.user.username %></h3>
-        <p>Game: <%= oneBacklog.game %></p>
-        <p>Genre: <%= oneBacklog.genre %></p>
-        <p>Description: <%= oneBacklog.description %></p>
-        <p>Game complete? : <%= oneBacklog.status %></p>
-        </div>
+    <% allUsers.forEach((user) => { %>
+        <a href="/backlog/users/<%= user._id %>"><%= user.username %></a>
     <% }); %>
 </body>
 </html>
