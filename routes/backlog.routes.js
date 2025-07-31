@@ -24,6 +24,9 @@ router.post('/', async (req, res) => {
     }
 })
 
+
+
+
 // shows the user their backlog - READ
 router.get("/", async (req, res) => {
     try {
@@ -60,12 +63,12 @@ router.get('/users', async(req,res)=>{
 
 router.get('/users/:userId', async(req,res)=>{
     try{ 
-        const founduser = await User.findById(req.params.userId)
-        if(founduser) {
-            const allUserBacklogs = await Backlog.find({user:founduser._id})
-            res.render('backlogs/userDetail.ejs', {founduser , allUserBacklogs})
+        const foundUser = await User.findById(req.params.userId)
+        if(foundUser) {
+            const allUserBacklogs = await Backlog.find({user:foundUser._id})
+            res.render('backlogs/userDetail.ejs', {foundUser , allUserBacklogs})
         }
-        console.log(founduser)
+        console.log(foundUser)
     } catch (error) {
         console.log("failed to fetch community backlogs", error)
     }
@@ -84,6 +87,7 @@ router.get('/edit/:backlogId', async (req, res) => {
         console.log("failed to update game listing", error)
     }
 })
+
 router.put('/edit/:backlogId', async (req, res) => {
     try {
         let foundGame = Backlog.findById(req.params.backlogId)
@@ -99,6 +103,8 @@ router.put('/edit/:backlogId', async (req, res) => {
         console.log('failed to update game listing', error)
     }
 })
+
+
 
 // allows user to delete listings - DELETE
 router.delete('/:backlogId', async (req, res) => {

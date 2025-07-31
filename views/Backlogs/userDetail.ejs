@@ -6,9 +6,12 @@
     <title>User backlog</title>
 </head>
 <body>
-    <h1>Backlogs</h1>
+    <h1><%= foundUser.username %>'s backlog</h1>
     <% allUserBacklogs.forEach((backlog) => { %>
-        <p><%= backlog.game %></p>
-    <% }) %>
+        <p>Game: <%= backlog.game %></p>
+        <p>Genre: <%= backlog.genre %></p>
+        <p>Description: <%= backlog.description %></p>
+        <p>Game completed? - (<%= backlog.status %>)</p>
+        <% }) %>
 </body>
 </html>
