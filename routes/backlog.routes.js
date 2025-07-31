@@ -46,6 +46,19 @@ router.get('/details/:backlogId', async (req, res) => {
     }
 })
 
+
+// shows the user backlogs of other users 
+router.get('/community', async(req,res)=>{
+    try{ const allBacklogs = await Backlog.find().populate("user")
+        res.render('/backlog/community.ejs', {allBacklogs: allBacklogs})
+    } catch (error) {
+        console.log("failed to fetch community backlogs", error)
+    }
+})
+
+
+
+
 //allows the user to edit their backlog - UPDATE
 router.get('/edit/:backlogId', async (req, res) => {
     try {
