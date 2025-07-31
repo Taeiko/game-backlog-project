@@ -30,7 +30,7 @@ connectToDB()
 app.use('/auth', authRoutes )
 app.use(isSignedIn)
 app.use('/backlog', backlogRoutes)
-
+app.use(express.static(__dirname + '/public'))
 
 app.get('/',(req,res)=> {
   res.render("home.ejs")
