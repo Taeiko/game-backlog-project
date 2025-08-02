@@ -8,12 +8,32 @@ a {
     padding: 5px;
     color: #f9e98c;
     text-decoration: none;
+    display:inline-flex;
 }
 
 h1 {
     text-align: center;
     color: white;
+    font-family: Bitcount Grid Single;
+    margin-bottom: 1px;
 }
-nav {
+
+h4 {
     color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 0;
+}
+
+.greeting {
+    margin:2px;
+    color: white;
+}
+
+.menu{
+    display:inline-flex;
+    justify-content: center;
+    border-bottom-style: solid ;
+    padding: 2px;
+    color: #f9e98c;
+
 }

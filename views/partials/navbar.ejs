@@ -1,9 +1,11 @@
 <nav>
     <% if (user){ %>
-        <p>Welcome, <%= user.username %>!</p>
-        <a href="/auth/logout">Logout</a>
+        <p class="greeting">Welcome, <%= user.username %>!</p>
+    <div class="menu">
+        <a href="/auth/logout">Log out</a>
         <a href="/backlog">Your backlog</a>
         <a href="/backlog/users">Community backlogs</a>
+    </div>
         <!-- <a href="/backlog/new">add new game</a> -->
 
     <%} else{ %>
