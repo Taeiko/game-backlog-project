@@ -14,7 +14,7 @@ a {
 h1 {
     text-align: center;
     color: white;
-    font-family: Bitcount Grid Single;
+    font-family: Bitcount prop single;
     margin-bottom: 1px;
 }
 
@@ -35,5 +35,24 @@ h4 {
     border-bottom-style: solid ;
     padding: 2px;
     color: #f9e98c;
+    margin-bottom:8px;
 
+}
+.image-with-txt{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.smaller-image {
+    height:300px;
+    width:350px;
+    margin: 15px;
+}
+
+.image-with-txt2{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.smaller-image2{
+    height:300px;
+    width:350px;
 }
