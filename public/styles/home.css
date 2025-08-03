@@ -57,3 +57,17 @@ h4 {
     height:300px;
     width:350px;
 }
+
+
+#hometext{
+    display: flex;
+    justify-self: center;
+    text-align: center;
+    width: 400px;
+}
+#hometext2{
+    display: flex;
+    justify-self: center;
+    text-align: center;
+    width: 450px;
+}
