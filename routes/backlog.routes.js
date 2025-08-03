@@ -1,10 +1,11 @@
 const Backlog = require("../models/Backlog")
 const User = require("../models/User")
 const router = require("express").Router()
+const isSignedIn = require('../middleware/isSignedIn')
 
 
 // create a game listing - CREATE
-router.get("/new", async (req, res) => {
+router.get("/new", isSignedIn, async (req, res) => {
     console.log(req.session.user)
     const allGames = await Backlog.find()
     res.render("backlogs/new.ejs", { allGames: allGames })

@@ -28,8 +28,8 @@ connectToDB()
 
 // routes go here
 app.use('/auth', authRoutes )
-app.use(isSignedIn)
 app.use('/backlog', backlogRoutes)
+// app.use(isSignedIn)
 
 app.get('/',(req,res)=> {
   res.render("home.ejs")

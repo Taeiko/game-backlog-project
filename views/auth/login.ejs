@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/login.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/login.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <%- include('../partials/navbar') %>
-        <h1>Log in</h1>
-        <form action="/auth/login" method="post">
-            <label for="username">username:</label>
-            <input type="text" name="username" id="username">
-
-            <label for="password">password:</label>
-            <input type="password" name="password" id="password">
-
-            <button>Login</button>
-        </form>
-
-        <% if (error) { %>
-            <p style="color:red" class="error">
-                <%= error %>
-            </p>
-            <% } %>
-
-</body>
-
+    <h1>Log in</h1>
+    <form action="/auth/login" method="post">
+      <div id="container">
+        <div class="user">
+          <label for="username">username:</label>
+          <input
+            class="username"
+            type="text"
+            name="username"
+            id="username"
+          />
+        </div>
+        <div class="pass">
+          <label for="password">password:</label>
+          <input
+            class="password"
+            type="password"
+            name="password"
+            id="password"
+          />
+        </div>
+        <button>Log in</button>
+      </div>
+    </form>
+    <% if (error) { %>
+    <p style="color: red" class="error"><%= error %></p>
+    <% } %>
+  </body>
 </html>
