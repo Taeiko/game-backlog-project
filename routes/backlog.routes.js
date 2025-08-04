@@ -6,7 +6,6 @@ const isSignedIn = require('../middleware/isSignedIn')
 
 // create a game listing - CREATE
 router.get("/new", async (req, res) => {
-    console.log(req.session.user)
     try { const allBacklogs = await Backlog.find()
     res.render("backlogs/new.ejs", { allBacklogs: allBacklogs })
     } catch (error){
@@ -16,11 +15,7 @@ router.get("/new", async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        console.log(req.session.user)
         req.body.user = req.session.user._id
-
-        console.log(req.body)
-
         await Backlog.create(req.body)
         res.redirect("/backlog")
     } catch (error) {
@@ -35,8 +30,7 @@ router.post('/', async (req, res) => {
 router.get("/", async (req, res) => {
     try {
         const userBacklog = await Backlog.find({ user: req.session.user._id })
-        console.log(userBacklog)
-        // here i tell the page to render my 
+        // here i tell the page to render my backlog
         res.render('backlogs/userbacklog.ejs', { userBacklog: userBacklog })
     } catch (error) {
         console.log("failed to fetch backlogs", error)
@@ -47,7 +41,6 @@ router.get('/details/:backlogId', async (req, res) => {
     try {
         const foundGame = await Backlog.findById(req.params.backlogId)
         res.render('backlogs/game-details.ejs', { foundGame })
-        console.log(foundGame)
     } catch (error) {
         console.log("failed to find game", error)
     }
@@ -60,7 +53,6 @@ router.get('/users', async(req,res)=>{
     try{ 
         const allUsers = await User.find().populate("backlog")
         res.render('backlogs/community.ejs', {allUsers: allUsers})
-        console.log(allUsers)
     } catch (error) {
         console.log("failed to fetch community backlogs", error)
     }
@@ -73,7 +65,6 @@ router.get('/users/:userId', async(req,res)=>{
             const allUserBacklogs = await Backlog.find({user:foundUser._id})
             res.render('backlogs/userDetail.ejs', {foundUser , allUserBacklogs})
         }
-        console.log(foundUser)
     } catch (error) {
         console.log("failed to fetch community backlogs", error)
     }
@@ -115,8 +106,6 @@ router.put('/edit/:backlogId', async (req, res) => {
 router.delete('/:backlogId', async (req, res) => {
     try {
         let foundGame = await Backlog.findById(req.params.backlogId)
-        console.log("Session Id " + req.session.user._id)
-        console.log("found game id ", foundGame.user)
         if (req.session.user._id === JSON.stringify(foundGame.user)) {
             return res.send('Error! this listing belongs to another user.')
         }
