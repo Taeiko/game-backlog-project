@@ -1,0 +1,27 @@
+body {
+    background-color: #232531;
+}
+
+h1 {
+    border-bottom: 1px solid white;
+    text-align: center;
+    color: white;
+    font-family: Bitcount prop single;
+    margin-bottom: 3px;
+}
+
+p{
+    text-align: left;
+    color: white;
+    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+h3{
+    color: white;
+        font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+a{
+    color: #f9e98c;
+    text-decoration-style: none;
+}

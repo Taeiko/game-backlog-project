@@ -5,10 +5,10 @@ const isSignedIn = require('../middleware/isSignedIn')
 
 
 // create a game listing - CREATE
-router.get("/new", isSignedIn, async (req, res) => {
+router.get("/new", async (req, res) => {
     console.log(req.session.user)
-    const allGames = await Backlog.find()
-    res.render("backlogs/new.ejs", { allGames: allGames })
+    const allBacklogs = await Backlog.find()
+    res.render("backlogs/new.ejs", { allBacklogs: allBacklogs })
 })
 
 router.post('/', async (req, res) => {
@@ -52,16 +52,17 @@ router.get('/details/:backlogId', async (req, res) => {
 
 
 // shows the user backlogs of other users 
+// community page
 router.get('/users', async(req,res)=>{
     try{ 
-        const allUsers = await User.find()
-        res.render('backlogs/community.ejs', {allUsers})
+        const allUsers = await User.find().populate("backlog")
+        res.render('backlogs/community.ejs', {allUsers: allUsers})
         console.log(allUsers)
     } catch (error) {
         console.log("failed to fetch community backlogs", error)
     }
 })
-
+// user backlog
 router.get('/users/:userId', async(req,res)=>{
     try{ 
         const foundUser = await User.findById(req.params.userId)

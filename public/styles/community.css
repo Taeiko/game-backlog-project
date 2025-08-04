@@ -1,0 +1,20 @@
+body {
+    background-color: #232531;
+    text-align: center;
+
+}
+a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding: 10px;
+    color: #f9e98c;
+    text-decoration: none;
+    display:inline-flex;
+}
+h1 {
+    text-align: center;
+    color: white;
+    font-family: Bitcount prop single;
+    margin-bottom: 1px;
+}
+
