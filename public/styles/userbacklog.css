@@ -25,8 +25,35 @@ h3{
 
 }
 
-a{
+#game-container{
+    margin-bottom: 30px;
+
+}
+.details{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #f9e98c;
-    text-decoration-style: none;
+    
+}
+
+.add {
+    background-color: #04AA6D;
+    color: white;
+    padding: 7px 10px;
+    margin: 8px 0;
+    width: 40%;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+#back {
+    background-color: #d5b410;
+    color: white;
+    padding: 7px ;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    display: inline-block;
+    text-align: center;
 }

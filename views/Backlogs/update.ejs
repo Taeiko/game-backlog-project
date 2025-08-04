@@ -13,7 +13,7 @@
     <h1>Edit a game listing</h1>
     <br>
     <br>
-        <form action="/backlog/edit/<%= foundGame._id %>?_method=PUT" method="post">
+        <form class="edit" action="/backlog/edit/<%= foundGame._id %>?_method=PUT" method="post">
         <label for="game">Game:</label>
         <input type="text" title="game" name="game" value="<%= foundGame.game %>">
 
@@ -30,7 +30,13 @@
 
         </select>
 
-        <button type="submit">Update</button>
+        <button id="update" type="submit">Update</button>
     </form>
+        <br>
+        <div>
+    <form action="/backlog" method="get">
+      <button class="back">Go back</button>
+    </form>
+    </div>
 </body>
 </html>

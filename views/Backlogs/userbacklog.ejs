@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/styles/userbacklog.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/userbacklog.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Your backlog</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Your game backlog</h1>
 
     <% userBacklog.forEach((oneGame) => { %>
-    <div>
-        
-        <h3>Game: <%= oneGame.game %></h3>
-        <p>Genre: <%= oneGame.genre %></p>
-        <p>Description: <%= oneGame.description %></p>
-        <p>Game complete? : <%= oneGame.status %></p>
-        
+    <div id="game-container">
+      <h3>Game: <%= oneGame.game %></h3>
+      <p>Genre: <%= oneGame.genre %></p>
+      <p>Description: <%= oneGame.description %></p>
+      <p>Game complete? : <%= oneGame.status %></p>
     </div>
-    <a href="/backlog/details/<%= oneGame._id %>">See game details</a>
+    <a class="details" href="/backlog/details/<%= oneGame._id %>">See game details</a>
     <% }) %>
-    <br>
-    <br>
+    <br />
+    <br />
     <form action="/backlog/new" method="get">
-    <button>Add a new game</button>
+      <button class="add">Add a new game</button>
     </form>
-</body>
+    <br>
+    <form action="/" method="get">
+      <button id="back">Go back</button>
+    </form>
+  </body>
 </html>
