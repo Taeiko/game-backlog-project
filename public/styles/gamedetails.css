@@ -1,0 +1,22 @@
+body {
+    background-color: #232531;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-family: Bitcount prop single;
+    margin-bottom: 1px;
+}
+
+h3 {
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+p {
+    color: white;
+    font-family: sans-serif;
+}

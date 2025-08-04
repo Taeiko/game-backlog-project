@@ -13,15 +13,16 @@ h1 {
 p{
     text-align: left;
     color: white;
-    font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 h3{
     color: white;
-        font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
 a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #f9e98c;
     text-decoration-style: none;
 }
