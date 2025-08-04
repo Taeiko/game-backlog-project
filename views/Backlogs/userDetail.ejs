@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-            <link rel="stylesheet" href="/styles/userdetail.css">
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/styles/userdetail.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= foundUser.username %>'s backlog</title>
-</head>
-<body>
-    <h1><%= foundUser.username %>'s backlog</h1>
+  </head>
+  <body>
+    <div id="title-container">
+      <h1><%= foundUser.username %>'s backlog</h1>
+    </div>
     <% allUserBacklogs.forEach((backlog) => { %>
-        <p>Game: <%= backlog.game %></p>
-        <p>Genre: <%= backlog.genre %></p>
-        <p>Description: <%= backlog.description %></p>
-        <p>Game completed? - (<%= backlog.status %>)</p>
-        <% }) %>
-        <br>
-</body>
+    <div class="game-container">
+      <p id="game">Game: <%= backlog.game %></p>
+      <p>Genre: <%= backlog.genre %></p>
+      <p>Description: <%= backlog.description %></p>
+      <p>Game completed? - (<%= backlog.status %>)</p>
+          </div>
+
+      <% }) %>
+  </body>
 </html>

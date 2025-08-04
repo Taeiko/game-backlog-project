@@ -11,8 +11,10 @@
 </head>
 <body>
     <h1>Browse community backlogs</h1>
+    <div class="users">
     <% allUsers.forEach((user) => { %>
         <a href="/backlog/users/<%= user._id %>"><%= user.username %></a>
     <% }); %>
+</div>
 </body>
 </html>

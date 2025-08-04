@@ -1,13 +1,17 @@
 body {
     background-color: #232531;
+    
 }
 
 h1 {
-    border-bottom: 1px solid white;
+    display:inline-flex;
+    justify-content: center;
+    border-bottom-style: solid ;
     text-align: center;
     color: white;
     font-family: Bitcount prop single;
     margin-bottom: 3px;
+    
 }
 
 p{

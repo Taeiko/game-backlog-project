@@ -4,14 +4,31 @@ body {
 
 h1 {
     border-bottom: 1px solid white;
+    display: inline-block;
+
     text-align: center;
+
     color: white;
     font-family: Bitcount prop single;
     margin-bottom: 3px;
+    
 }
 
 p{
     text-align: left;
     color: white;
     font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+#game{
+    font-weight: bold;
+}
+#title-container{
+    display: flex;
+    justify-content: center;
+}
+
+
+.game-container{
+    margin-bottom: 50px;
+
 }
