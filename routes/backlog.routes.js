@@ -7,8 +7,11 @@ const isSignedIn = require('../middleware/isSignedIn')
 // create a game listing - CREATE
 router.get("/new", async (req, res) => {
     console.log(req.session.user)
-    const allBacklogs = await Backlog.find()
+    try { const allBacklogs = await Backlog.find()
     res.render("backlogs/new.ejs", { allBacklogs: allBacklogs })
+    } catch (error){
+        console.log("failed to create game", error)
+    }
 })
 
 router.post('/', async (req, res) => {
