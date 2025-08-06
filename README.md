@@ -1,5 +1,5 @@
 # game-backlog-project
-# 🕹️ Pile of Shame
+# Pile of Shame
 
 **Pile of Shame** is a web application that I created for my "Project 2" for General Assembly. The purpose of this app is to help the user keep track of the games they would like to complete. and be able to view backlogs created by other users in case they feel like they would like to try new games.
 
